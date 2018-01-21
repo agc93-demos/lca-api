@@ -1,0 +1,14 @@
+[Unit]
+Description=Web API for information on LCA
+
+[Service]
+WorkingDirectory=/opt/lca-api/
+ExecStart=/usr/bin/dotnet /opt/lca-api/lca-api.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=dotnet-app
+#User=www-data
+Environment=ASPNETCORE_URLS=http://*:5000
+
+[Install]
+WantedBy=multi-user.target
